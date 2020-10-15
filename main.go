@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"github.com/jackwalker1993/golang-temperature-converter-cli/internal/model"
 	"os"
 	"strings"
 )
@@ -19,27 +20,8 @@ var errReadingInput = errors.New("Error reading input")
 
 func main() {
 
-	if len(os.Args) == 2 {
-		
-	} else {
-		printError(errInvalidArguments);
-	}
-
-	originUnit= strings.ToUpper(os.Args[1])
-
 	for {
-		fmt.Print("What is the current temperature in " + originUnit + " ? ")
-		_, err = fmt.Scanln(&originValue)
-
-		if err != nil {
-			printError(errReadingInput)
-		}
-
-		if originUnit == "C" {
-			convertToFahrenheit(originValue)
-		} else {
-			convertToCelsius(originValue)
-		}
+		fmt.Println("Hi JAck!")
 
 		fmt.Print("Would you like to convert another temperature ? (y/n) ")
 		_, err = fmt.Scanln(&shouldConvertAgain)
@@ -52,6 +34,9 @@ func main() {
 			fmt.Println("Good bye!")
 			break
 		}
+
+		test := report.Test()
+		fmt.Println(test)
 	}
 }
 
